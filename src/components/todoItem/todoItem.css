@@ -1,0 +1,19 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 8px 12px;
+  width: 90%;
+}
+
+.todo-item--done {
+  border: 1px solid lime;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  border-radius: 15px;
+  padding: 8px 12px;
+  width: 90%;
+}

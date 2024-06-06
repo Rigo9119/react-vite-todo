@@ -15,9 +15,10 @@ interface TodoItemProps {
 export default function TodoItem({ todo, isDone, onDelete }: TodoItemProps) {
   return (
     <li className={`${isDone ? "todo-item--done" : "todo-item"}`}>
-      <input type="checkbox" id="topping" name="topping" value="Paneer" />
+      <input type="checkbox" id="topping" name="done" value="Paneer" />
       <p>{todo}</p>
-      <button onClick={onDelete}>Delete item</button>
+      <button onClick={onDelete}>Delete</button>
+      <button onClick={() => console.log("hi")}>Edit</button>
     </li>
   );
 }

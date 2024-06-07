@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, ChangeEvent, useState } from "react";
 import { TTodo } from "./components/todoItem/todoItem";
 import "./App.css";
 import TodoList from "./components/todoList/todoList";
@@ -26,12 +26,26 @@ function App() {
     setTodos(removeItem);
   }
 
+  function onHandleDone(
+    event: ChangeEvent<HTMLInputElement>,
+    todoIndex: number
+  ) {
+    const updatedTodos = [...todos];
+    updatedTodos[todoIndex].isDone = event.target.checked;
+
+    setTodos(updatedTodos);
+  }
+
   return (
     <main>
       <div>
         <h1>Todo List with react and Vite</h1>
         <TodoForm onSubmit={onHandleSubmit} />
-        <TodoList todos={todos} onDelete={onHandleDelete} />
+        <TodoList
+          todos={todos}
+          onDelete={onHandleDelete}
+          onDone={onHandleDone}
+        />
       </div>
     </main>
   );

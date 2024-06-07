@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { ChangeEvent, MouseEventHandler } from "react";
 import "./todoItem.css";
 
 export type TTodo = {
@@ -10,15 +10,25 @@ interface TodoItemProps {
   todo: string;
   isDone: boolean;
   onDelete: MouseEventHandler<HTMLButtonElement>;
+  onDone: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function TodoItem({ todo, isDone, onDelete }: TodoItemProps) {
+export default function TodoItem({
+  todo,
+  isDone,
+  onDelete,
+  onDone,
+}: TodoItemProps) {
   return (
     <li className={`${isDone ? "todo-item--done" : "todo-item"}`}>
-      <input type="checkbox" id="topping" name="done" value="Paneer" />
+      <input
+        type="checkbox"
+        id={`todo-${todo}`}
+        name="done"
+        onChange={(event) => onDone(event)}
+      />
       <p>{todo}</p>
       <button onClick={onDelete}>Delete</button>
-      <button onClick={() => console.log("hi")}>Edit</button>
     </li>
   );
 }

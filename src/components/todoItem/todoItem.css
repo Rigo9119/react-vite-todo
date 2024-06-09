@@ -4,7 +4,7 @@
   justify-content: space-between;
   list-style: none;
   padding: 8px 12px;
-  width: 90%;
+  width: 100%;
 }
 
 .todo-item--done {
@@ -15,5 +15,5 @@
   list-style: none;
   border-radius: 15px;
   padding: 8px 12px;
-  width: 90%;
+  width: 100%;
 }

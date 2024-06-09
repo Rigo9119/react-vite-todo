@@ -28,10 +28,20 @@ function App() {
 
   function onHandleDone(
     event: ChangeEvent<HTMLInputElement>,
-    todoIndex: number
+    todoIndex: number,
   ) {
     const updatedTodos = [...todos];
     updatedTodos[todoIndex].isDone = event.target.checked;
+
+    setTodos(updatedTodos);
+  }
+
+  function onHandleEdit(
+    event: ChangeEvent<HTMLInputElement>,
+    todoIndex: number,
+  ) {
+    const updatedTodos = [...todos];
+    updatedTodos[todoIndex].todo = event.target.value;
 
     setTodos(updatedTodos);
   }
@@ -45,6 +55,7 @@ function App() {
           todos={todos}
           onDelete={onHandleDelete}
           onDone={onHandleDone}
+          onEdit={onHandleEdit}
         />
       </div>
     </main>
